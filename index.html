@@ -20,6 +20,7 @@ box-sizing:border-box;
 
 html{
 scroll-behavior:smooth;
+
 }
 
 body{
@@ -98,7 +99,8 @@ display:block;
 }
 .hero-full{
 position:relative;
-min-height:85vh;
+width:100%;
+min-height:100svh;
 padding-top:120px;
 background-image:url('EJEMPLO01.jpg');
 background-size:cover;
@@ -109,7 +111,15 @@ justify-content:center;
 text-align:center;
 color:white;
 }
+@media(max-width:768px){
 
+.hero-full{
+min-height:100vh;       /* ocupa toda la pantalla */
+padding-top:100px;      /* un poco menos que 120 */
+background-position:center center;
+}
+
+}
 .hero-overlay{
 position:absolute;
 top:0;
@@ -505,14 +515,7 @@ display:block;
 
 </style>
 
-<script>
-const toggle = document.getElementById("menu-toggle");
-const navLinks = document.getElementById("nav-links");
 
-toggle.addEventListener("click", () => {
-  navLinks.classList.toggle("active");
-});
-</script>
 
 </head>
 
@@ -774,6 +777,14 @@ alert("Hubo un error. Intentá nuevamente.");
 
 </script>
 
+<script>
+const toggle = document.getElementById("menu-toggle");
+const navLinks = document.getElementById("nav-links");
+
+toggle.addEventListener("click", () => {
+  navLinks.classList.toggle("active");
+});
+</script>
 
 </body>
 </html>
