@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Asesoramiento Legal | JM</title>
+<link rel="icon" type="image/png" href="favicon.jpeg">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+/* ================= RESET ================= */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Inter', sans-serif;
+background:#f4efe9;
+color:#3b1f24;
+line-height:1.6;
+}
+
+/* ================= NAVBAR ================= */
+
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 8%;
+background:#3b1f24;
+color:white;
+position:fixed;
+width:100%;
+top:0;
+z-index:1000;
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:12px;
+}
+
+.logo-img{
+height:80px;
+filter: invert(1);
+width:auto;
+display:block;
+}
+
+.logo-text{
+display:flex;
+flex-direction:column;
+font-family:'Playfair Display', serif;
+font-size:1.2rem;
+color:white;
+}
+
+.logo-text span{
+font-family:'Inter', sans-serif;
+font-size:0.75rem;
+letter-spacing:1px;
+opacity:0.8;
+}
+
+.nav-links a{
+color:white;
+text-decoration:none;
+margin-left:25px;
+font-weight:500;
+transition:0.3s;
+}
+
+.nav-links a:hover{
+opacity:0.7;
+}
+
+/* ================= HERO ================= */
+.btn-hero{
+display:inline-flex;
+align-items:center;
+gap:10px;
+}
+
+.btn-icon{
+height:20px;
+width:auto;
+display:block;
+}
+.hero-full{
+position:relative;
+min-height:85vh;
+padding-top:120px;
+background-image:url('EJEMPLO01.jpg');
+background-size:cover;
+background-position:center;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+color:white;
+}
+
+.hero-overlay{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(59,31,36,0.65);
+}
+
+.hero-content{
+position:relative;
+z-index:2;
+max-width:800px;
+padding:20px;
+animation:fadeInHero 1.2s ease;
+}
+
+@keyframes fadeInHero{
+from{
+opacity:0;
+transform:translateY(30px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+.hero-content h1{
+font-family:'Playfair Display', serif;
+font-size:4.5rem;
+letter-spacing:5px;
+margin-bottom:20px;
+}
+
+.hero-content p{
+font-size:1.2rem;
+margin-bottom:30px;
+}
+
+.btn-hero{
+background:#c5a25c;
+color:#3b1f24;
+padding:15px 34px;
+border-radius:8px;
+text-decoration:none;
+font-weight:600;
+font-size:1.05rem;
+transition:0.3s;
+}
+
+.btn-hero:hover{
+background:#d6b876;
+transform:scale(1.05);
+}
+
+/* ================= SECTIONS ================= */
+
+.section{
+padding:100px 8%;
+}
+
+.section h3{
+font-family:'Playfair Display', serif;
+font-size:2rem;
+margin-bottom:40px;
+text-align:center;
+color:#5a1e2b;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:30px;
+}
+
+.card{
+background:white;
+padding:30px;
+border-radius:12px;
+box-shadow:0 10px 25px rgba(0,0,0,0.05);
+transition:0.4s;
+}
+
+.card:hover{
+transform:translateY(-6px);
+}
+
+.card h4{
+font-family:'Playfair Display', serif;
+margin-bottom:15px;
+color:#5a1e2b;
+}
+
+.card li{
+margin-bottom:8px;
+}
+
+/* ================= CTA ================= */
+
+.cta{
+background:#5a1e2b;
+color:white;
+text-align:center;
+padding:80px 20px;
+}
+
+.cta h2{
+font-family:'Playfair Display', serif;
+margin-bottom:25px;
+}
+
+/* ================= CONTACT ================= */
+
+.contact{
+padding:60px 8%;
+text-align:center;
+}
+
+.contact p{
+margin-bottom:10px;
+font-size:1.1rem;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+background:#3b1f24;
+color:white;
+text-align:center;
+padding:20px;
+font-size:0.9rem;
+}
+
+/* ===== WHATSAPP ===== */
+
+.whatsapp-float{
+position:fixed;
+width:85px;              /* más grande */
+height:85px;
+bottom:30px;
+right:30px;
+background:#25D366;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+box-shadow:0 15px 35px rgba(0,0,0,0.4);
+transition:0.3s;
+z-index:9999;
+animation:floatWsp 2s ease-in-out infinite;
+}
+
+/* icono más grande */
+.whatsapp-float img{
+width:42px;
+}
+
+/* movimiento más notorio */
+@keyframes floatWsp{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-10px);}
+}
+
+/* efecto pulso fuerte */
+.whatsapp-float::before{
+content:"";
+position:absolute;
+width:100%;
+height:100%;
+border-radius:50%;
+background:#25D366;
+opacity:0.5;
+animation:pulse 1.8s infinite;
+z-index:-1;
+}
+
+@keyframes pulse{
+0%{transform:scale(1);opacity:0.5;}
+70%{transform:scale(1.8);opacity:0;}
+100%{opacity:0;}
+}
+
+/* ===== TOOLTIP MÁS GRANDE ===== */
+
+.wsp-tooltip{
+position:absolute;
+right:105px;
+background:#3b1f24;
+color:white;
+padding:14px 18px;
+border-radius:8px;
+font-size:1rem;
+font-weight:600;
+white-space:nowrap;
+opacity:0;
+transform:translateX(15px);
+transition:0.4s;
+pointer-events:none;
+box-shadow:0 10px 25px rgba(0,0,0,0.3);
+}
+
+/* flechita */
+.wsp-tooltip::after{
+content:"";
+position:absolute;
+right:-8px;
+top:50%;
+transform:translateY(-50%);
+border-width:8px;
+border-style:solid;
+border-color:transparent transparent transparent #3b1f24;
+}
+
+/* aparece al hover */
+.whatsapp-float:hover .wsp-tooltip{
+opacity:1;
+transform:translateX(0);
+}
+
+
+
+/* ================= SCROLL ANIMATION ================= */
+
+.reveal{
+opacity:0;
+transform:translateY(40px);
+transition:all 0.8s ease;
+}
+
+.reveal.active{
+opacity:1;
+transform:translateY(0);
+}
+/* ================= CONSULTA ================= */
+
+.consulta-section{
+padding:100px 8%;
+background:#f8f6f3;
+}
+
+.consulta-container{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:60px;
+align-items:center;
+}
+
+.consulta-form h4{
+color:#5a1e2b;
+letter-spacing:1px;
+font-size:0.9rem;
+margin-bottom:10px;
+}
+
+.consulta-form h2{
+font-family:'Playfair Display', serif;
+font-size:2rem;
+margin-bottom:30px;
+}
+
+.consulta-form form{
+display:flex;
+flex-direction:column;
+gap:15px;
+}
+
+.consulta-form input,
+.consulta-form textarea{
+padding:14px;
+border:1px solid #ddd;
+border-radius:6px;
+font-family:'Inter', sans-serif;
+font-size:0.95rem;
+}
+
+.consulta-form input:focus,
+.consulta-form textarea:focus{
+outline:none;
+border-color:#5a1e2b;
+}
+
+.consulta-form button{
+background:#3b1f24;
+color:white;
+padding:14px;
+border:none;
+border-radius:6px;
+cursor:pointer;
+font-weight:600;
+transition:0.3s;
+}
+
+.consulta-form button:hover{
+background:#5a1e2b;
+}
+
+.nota{
+margin-top:10px;
+font-size:0.85rem;
+color:#777;
+}
+
+.consulta-img img{
+width:100%;
+border-radius:8px;
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+.consulta-container{
+grid-template-columns:1fr;
+}
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:768px){
+
+.hero-content h1{
+font-size:2.8rem;
+}
+
+.hero-content p{
+font-size:1rem;
+}
+
+.section{
+padding:70px 8%;
+}
+
+nav{
+flex-direction:column;
+gap:10px;
+}
+
+.nav-links{
+display:flex;
+gap:15px;
+}
+
+}
+
+.menu-toggle{
+display:none;
+font-size:2rem;
+cursor:pointer;
+color:white;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+nav{
+flex-direction:row;
+padding:15px 6%;
+}
+
+.logo-img{
+height:55px;
+}
+
+.nav-links{
+position:absolute;
+top:100%;
+left:0;
+width:100%;
+background:#3b1f24;
+flex-direction:column;
+align-items:center;
+max-height:0;
+overflow:hidden;
+transition:0.4s ease;
+}
+
+.nav-links a{
+margin:18px 0;
+font-size:1.1rem;
+}
+
+.nav-links.active{
+max-height:400px;
+padding-bottom:20px;
+}
+
+.menu-toggle{
+display:block;
+}
+
+}
+
+</style>
+
+<script>
+const toggle = document.getElementById("menu-toggle");
+const navLinks = document.getElementById("nav-links");
+
+toggle.addEventListener("click", () => {
+  navLinks.classList.toggle("active");
+});
+</script>
+
+</head>
+
+
+
+
+<body>
+
+<nav>
+  <div class="logo">
+    <img src="images/JM_Abogada02.png" alt="Logo Julieta Maciel" class="logo-img">
+    <div class="logo-text">
+        Julieta Maciel
+        <span>Abogada</span>
+    </div>
+  </div>
+
+  <div class="menu-toggle" id="menu-toggle">
+      ☰
+  </div>
+
+  <div class="nav-links" id="nav-links">
+      <a href="#inicio">Inicio</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#porque">¿Por qué elegirme?</a>
+      <a href="#consulta">Consultanos</a>
+      <a href="#contacto">Contacto</a>
+  </div>
+</nav>
+
+<a href="https://wa.me/5491170669391?text=Hola%20Julieta,%20quiero%20realizar%20una%20consulta%20legal." 
+class="whatsapp-float" 
+target="_blank">
+
+<span class="wsp-tooltip">Hacé tu consulta</span>
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
+
+</a>
+
+<section class="hero-full" id="inicio">
+
+<div class="hero-overlay"></div>
+
+<div class="hero-content">
+<h1>ASESORAMIENTO LEGAL JM</h1>
+<p>Defendemos tus derechos con experiencias y dedicacion profesional</p>
+
+<a href="https://wa.me/5491170669391?text=Hola%20Julieta,%20quiero%20realizar%20una%20consulta%20legal." 
+target="_blank" 
+class="btn-hero">
+Dejanos tu consulta 
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="btn-icon">
+</a>
+</div>
+
+</section>
+
+<section class="section reveal" id="servicios">
+<h3>Áreas de práctica</h3>
+
+<div class="grid">
+
+<div class="card reveal">
+<h4>Tránsito y daños</h4>
+<ul>
+<li>Multas</li>
+<li>Accidentes</li>
+<li>Reclamos por daños</li>
+</ul>
+</div>
+
+<div class="card reveal">
+<h4>Familia</h4>
+<ul>
+<li>Alimentos</li>
+<li>Régimen de comunicación</li>
+<li>Divorcios</li>
+</ul>
+</div>
+
+<div class="card reveal">
+<h4>Laboral</h4>
+<ul>
+<li>Despidos</li>
+<li>Accidentes laborales</li>
+<li>Enfermedades profesionales</li>
+</ul>
+</div>
+
+<div class="card reveal">
+<h4>Civil y contratos</h4>
+<ul>
+<li>Transferencias</li>
+<li>Contratos de alquiler</li>
+</ul>
+</div>
+
+</div>
+</section>
+
+<section class="section reveal" id="porque">
+<h3>¿Por qué elegirme?</h3>
+
+<div class="grid">
+
+<div class="card reveal">
+<h4>Experiencia Institucional</h4>
+<p>Desempeño en la Fuerza Aérea Argentina en área jurídica-contable.</p>
+</div>
+
+<div class="card reveal">
+<h4>Precisión Técnica</h4>
+<p>Especialización en liquidaciones judiciales y laborales.</p>
+</div>
+
+<div class="card reveal">
+<h4>Formación Integral</h4>
+<p>Abogada y Procuradora con formación contable en curso.</p>
+</div>
+
+<div class="card reveal">
+<h4>Seguimiento Profesional</h4>
+<p>Manejo de PJN, MEV y sistemas judiciales.</p>
+</div>
+
+</div> 
+<br><br><br><br><br>
+
+
+<section class="consulta-section" id="consulta">
+
+<div class="consulta-container">
+
+<div class="consulta-form">
+<h4>ESTAMOS PARA AYUDAR</h4>
+<h2>Dejanos tu consulta</h2>
+
+<form id="consultaForm">
+
+<input type="text" id="nombre" placeholder="Nombre y apellido*" required>
+<input type="email" id="email" placeholder="Correo Electrónico*" required>
+<input type="tel" id="telefono" placeholder="Teléfono*" required>
+<textarea id="mensaje" rows="5" placeholder="Su mensaje*" required></textarea>
+
+<button type="submit">
+<span id="btnText">Enviar consulta</span>
+<span id="loading" style="display:none;">Enviando...</span>
+</button>
+
+<p id="successMsg" style="display:none; color:green; margin-top:10px;">
+Consulta enviada correctamente ✔
+</p>
+
+</form>
+
+<p class="nota">*Datos obligatorios</p>
+</div>
+
+<div class="consulta-img">
+<img src="consulta.jpg" alt="Estudio Jurídico">
+</div>
+
+</div>
+
+</section>
+
+
+<section class="cta reveal">
+<h2>Consultá antes de tomar decisiones legales</h2>
+<a href="https://wa.me/5491170669391?text=Hola%20Julieta,%20quiero%20realizar%20una%20consulta%20legal." 
+target="_blank" 
+class="btn-hero">
+Solicitar asesoramiento
+</a>
+</section>
+
+<section class="contact reveal" id="contacto">
+<p><strong>Tel:</strong> 11 7066 9391</p>
+<p><strong>Email:</strong> julietamaciel.abogada@gmail.com</p>
+</section>
+
+<footer>
+© 2026 Julieta Maciel - Todos los derechos reservados
+</footer>
+
+
+
+<script>
+function revealOnScroll() {
+    const reveals = document.querySelectorAll(".reveal");
+    reveals.forEach(element => {
+        const windowHeight = window.innerHeight;
+        const elementTop = element.getBoundingClientRect().top;
+        const revealPoint = 100;
+
+        if (elementTop < windowHeight - revealPoint) {
+            element.classList.add("active");
+        }
+    });
+}
+window.addEventListener("scroll", revealOnScroll);
+</script>
+
+<script>
+
+const form = document.getElementById("consultaForm");
+
+form.addEventListener("submit", async function(e) {
+e.preventDefault();
+
+document.getElementById("btnText").style.display = "none";
+document.getElementById("loading").style.display = "inline";
+
+const data = {
+nombre: document.getElementById("nombre").value,
+email: document.getElementById("email").value,
+telefono: document.getElementById("telefono").value,
+mensaje: document.getElementById("mensaje").value
+};
+
+try{
+await fetch("https://script.google.com/macros/s/AKfycbzIbivkFNP_U7nNS8QCrBeD9Qhx4HgMBqc_CdXWVMxjr65gG6l7_pEttAVVwnK22fr94w/exec", {
+method: "POST",
+mode: "no-cors",
+body: JSON.stringify(data),
+headers: {
+"Content-Type": "application/json"
+}
+});
+
+document.getElementById("successMsg").style.display = "block";
+form.reset();
+
+setTimeout(() => {
+document.getElementById("btnText").style.display = "inline";
+document.getElementById("loading").style.display = "none";
+}, 1500);
+
+/* ===== WHATSAPP AUTOMÁTICO ===== */
+
+const wspMsg = `Hola Julieta, acabo de enviar una consulta desde la web.
+
+Nombre: ${data.nombre}
+Teléfono: ${data.telefono}
+Mensaje: ${data.mensaje}`;
+
+const url = `https://wa.me/5491170669391?text=${encodeURIComponent(wspMsg)}`;
+
+setTimeout(() => {
+window.open(url, "_blank");
+}, 1200);
+
+}catch(error){
+alert("Hubo un error. Intentá nuevamente.");
+}
+
+});
+
+</script>
+
+
+</body>
+</html>
